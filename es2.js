@@ -2,11 +2,10 @@
 
 function foo(n){
 	var tot = 0;
-	if(n%2 == 0) n--;
-	while(n == 0){
-		tot +=  n;
-		n -= 2;
-	}	
+	for(i=0; i < n; i++){
+		tot += 1 +2*i;
+	}
+	return n;
 }
 
 // Ha costo O(n) anche questo perché scorre gli elementi una volta //
