@@ -203,14 +203,13 @@ function nsplit_rC(n,matrix,i,j,cont){
 	var nq = Math.sqrt(n.length);
 	if(i<nq){
 		if(j<nq){
-			console.log(matrix);
 			matrix[i][j] = n[cont[0]];
 			cont[0]++;
-			console.log(cont[0]);
-			console.log(matrix);
-			nsplit_rC(n,matrix,i,j+1,cont);
+			j++;
+			nsplit_rC(n,matrix,i,j,cont);
+		}else{
+			nsplit_rC(n,matrix,i+1,0,cont);
 		}
-		nsplit_rC(n,matrix,i+1,0,cont);
 	}
 	return matrix;
 }
