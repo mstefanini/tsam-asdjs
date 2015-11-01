@@ -6,11 +6,18 @@ function replicate(x,n){
 	return temp;
 }
 
-function replicateRecursive(x,n,q){
+function replicate_rC(x,n,q){
 	if(n>0){
 		q.push(x);
-		return replicateRecursive(x,n-1,q);
+		return replicate_rC(x,n-1,q);
 	}else{
 		return q;
 	}
 }
+
+function replicate_rW(x,n){
+	var q = [];
+	return replicate_rC(x,n,q);
+}
+
+
