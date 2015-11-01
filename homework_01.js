@@ -394,6 +394,14 @@ function ex_7_R(x,y){
 	return pow_r(x,y);
 }
 
+function ex_8_I(x){
+	return n2split_i(x);
+}
+
+function ex_8_R(x){
+	return n2split_rW(x);
+}
+
 function ex_9_I(x){
 	return inverti(x);
 }
