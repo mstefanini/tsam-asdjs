@@ -141,7 +141,7 @@ function mult(x,y){
 function mult_r(x,y){
 	var acc = 0;
 	if(y == 0 || x == 0) return 0;
-	acc = x + mult_r(x,--y)
+	else acc = x + mult_r(x,--y)
 	return acc;
 }
 
@@ -159,7 +159,7 @@ function div(x,y){
 		x -= y;
 		i++;
 	}
-	return i + ' resto ' + x;
+	return [i,x];
 }
 
 function div_rC(x,y,temp){
@@ -174,7 +174,7 @@ function div_rC(x,y,temp){
 function div_rW(x,y){
 	var temp = [0];
 	var q = div_rC(x,y,temp);
-	return temp[0] + ' resto ' + q;
+	return [temp[0],q];
 }
 
 /*
