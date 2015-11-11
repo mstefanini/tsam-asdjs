@@ -1,68 +1,82 @@
 /*
-Esercizio 1:
+Esercizio 1
 Dato un array di interi, 
-restituire la loro somma fino a che 
-non viene ritrovato un valore negativo
+restituire la loro somma fino a che non viene ritrovato un valore negativo
 */
-
-function sumwhileneg(x){
-	var i = 0;
-	var tot = 0;
-	while((i<x.length)&&(x[i]<0)){
-		tot += x[i];
-		i++;
-	}
-	return tot;
+function sumwhileneg(myarray) {
+    var tot = 0;
+    for(i = 0; i < myarray.length; ++i) {
+        var x = myarray[i];
+        if (x < 0) {
+            return tot;
+        }
+        tot += x; 
+    }
 }
 
-function sumwhileneg_r(x){
- 	if(x.length > 0 || x[0] > 0){
-		return x[0] + sumwhileneg_r(x.slice(1));
-	}else{
-		return 0;
-	}
- }
+function sumwhilenegR(myarray) {
+    if (myarray.length == 0 || myarray[0] < 0) {
+        return 0;
+    } else {
+        return myarray[0] + sumwhilenegR(myarray.slice(1));
+    }
+}
 
- /*
+/*
 Esercizio 2
 Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
 */
-
- function sumOdd(n){
-	var tot = 0;
-	for(i=0; i < n; i++){
-		tot += 1 +2*i;
-	}
-	return n;
+function sumOdd(n) {
+    var tot = 0;
+    for(i = 0; i < n; ++i) {
+        tot += 1 + 2 *i;
+    }
+    return tot;
 }
 
-function sumOdd_r(n){
-	if(n==0) return 0;
-	return 2*n-1 + sumOdd_r(n-1);
+function sumOddR(n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return 2 * n - 1 + sumOddR(n-1);
+    }
 }
 
+
+function sumOddRTI(n, acc) {
+    if (n == 0) {
+        return acc;
+    } else {
+        return sumOddR(n-1, 2 * acc - 1);
+    }
+}
+
+function sumOddRT(n) {
+    return sumOddRTI(n, 1)
+}
 /*
 Esercizio 3
 Dato un array di 10 elementi, calcolarne la media
 */
-
-function mean(x){
-	var tot = 0;
-	for(i=0;i<10;i++){
-		tot += x[i];
-	}
-	tot = tot / 10;
-	return tot;
+function avgAll(myarray) {
+    var tot = 0;
+    for(var i = 0; i < myarray.length; i++) {
+        tot += myarray[i];
+    }
+    return tot / myarray.length;
 }
 
-function mean_r(x){
-	var tot = 0;
-	if(x.length > 0) tot = x[0] + mean_r(x.slice(1));
-	else return 0;
-	if(x.length == 10) return tot / 10;
-	else return tot;
+function avgAllRW(myarray) {
+    if (myarray.length == 0) {
+        return 0;
+    } else {
+        return myarray[0] + avgAllRW(myarray.slice(1));
+    }
 }
 
+function avgAllR(myarray) {
+    return avgAllRW(myarray) / myarray.length;
+}
 /*
 Esercizio 4
 Dato un intervallo [a, b] con a e b due interi positivi, restituire la somma di tutti i numeri
@@ -74,27 +88,38 @@ sumInterval(5, 3) => 12
 */
 
 
-function sumIntervalC(a,b){
-	var tot = 0;
-	for(i=a; i<=b; i++){
-		tot += i;
-	}
-	return tot;
+function sumIntervalW(a, b) {
+    var tot = 0;
+    for(var i = a; i <= b; i++) {
+        tot += i;
+    }
+    return tot;
 }
 
-function sumIntervalW(a,b){
-	if(a<b) return sumIntervalC(a,b);
-	else return sumIntervalC(b,a);
+function sumInterval(a, b) {
+    if (a < b){
+        return sumIntervalW(a, b);
+    } else {
+        return sumIntervalW(b, a);
+    }
 }
 
-function sumIntervalC_r(a, b) {
-	if (a == b) return a;
-    	else return a + sumIntervalRW(a + 1, b);
+function sumIntervalRW(a, b) {
+    if (a == b) {
+        return a;
+    } else {
+        return a + sumIntervalRW(a + 1, b);
+    }
+
+
 }
 
-function sumIntervalW_r(a, b) {
-    	if (a < b) return sumIntervalRW(a, b);
-    	else return sumIntervalRW(b, a);
+function sumIntervalR(a, b) {
+    if (a < b){
+        return sumIntervalRW(a, b);
+    } else {
+        return sumIntervalRW(b, a);
+    }
 }
 
 /*
@@ -116,7 +141,7 @@ function mult(x,y){
 function mult_r(x,y){
 	var acc = 0;
 	if(y == 0 || x == 0) return 0;
-	acc = x + multRecorsive(x,--y)
+	acc = x + mult_r(x,--y)
 	return acc;
 }
 
@@ -338,36 +363,34 @@ function orderList_rW(array){
 }
 
 //Per Tiziano
-function ex_1_I(x){
-	return sumwhileneg(x);
+function ex_1_I(x) {
+    return sumwhileneg(x);
 }
 
-function ex_1_R(x){
-	return sumwhileneg_r(x);
+function ex_1_R(x) {
+    return sumwhilenegR(x);
 }
 
-function ex_2_I(x){
-	return sumOdd(x);
+function ex_2_I(x) {
+    return sumOdd(x);
 }
 
-function ex_2_R(x){
-	return sumOdd_r(x);
+function ex_2_R(x) {
+    return sumOddR(x);
+}
+function ex_3_I(x) {
+    return avgAll(x);
 }
 
-function ex_3_I(x){
-	return mean(x);
+function ex_3_R(x) {
+    return avgAllR(x);
+}
+function ex_4_I(x, y) {
+    return sumInterval(x, y);
 }
 
-function ex_3_R(x){
-	return mean_r(x);
-}
-
-function ex_4_I(x,y){
-	return sumIntevalW(x,y);
-}
-
-function ex_4_R(x,y){
-	return sumIntervalW_r(x,y);
+function ex_4_R(x, y) {
+    return sumIntervalR(x, y);
 }
 
 function ex_5_I(x,y){
