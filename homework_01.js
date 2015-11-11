@@ -418,11 +418,11 @@ function ex_7_R(x,y){
 }
 
 function ex_8_I(x){
-	return n2split_i(x);
+	return nsplit_i(x);
 }
 
 function ex_8_R(x){
-	return n2split_rW(x);
+	return nsplit_rW(x);
 }
 
 function ex_9_I(x){
