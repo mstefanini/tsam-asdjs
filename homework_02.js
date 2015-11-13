@@ -1,6 +1,8 @@
 
 //VERSIONE RINNOVATA
 
+
+//FUNZIONE ESERCIZI PRECEDENTI 
 function replicate(x,n){
 	var temp = [];
 	for(i=0;i<n;i++){
@@ -111,6 +113,10 @@ function sum_interval(a,b){
 		(prevoiusValue, currentValue) => prevoiusValue + currentValue);
 }
 
+function ex_4_F(x,y){
+	return sum_interval(x,y);
+}
+
 /*
 Esercizio 5
 Si calcoli il prodotto di due numeri a, b maggiori o uguali a zero, tramite l’utilizzo del solo
@@ -121,6 +127,10 @@ mult(2, 3) => 6
 
 function multiply(x,y){
 	return replicate(x,y).reduce((prevoiusValue, currentValue) => prevoiusValue + currentValue);
+}
+
+function ex_5_F(x,y){
+	return multiply(x,y);
 }
 
 /*
@@ -137,6 +147,10 @@ function pow(x,y){
 	return replicate(x,y).reduce((prevoiusValue, currentValue) => prevoiusValue * currentValue);
 }
 
+function ex_7_F(x,y){
+	return pow(x,y);
+}
+
 /*
 Esercizio 11
 Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi
@@ -146,3 +160,12 @@ Input: A = {2, 5, 1, 8}
 Output: A = {5, 1, 2, 8}
 */
 
+function order_odd(arr){
+	var l1 = arr.filter( x => !(x%2 == 0));
+	var l2 = arr.filter( x => x%2 == 0 );
+	return l1.concat(l2);
+}
+
+function ex_11_F(x){
+	return order_odd(x);
+}
