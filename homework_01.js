@@ -193,9 +193,8 @@ function pow(a,b){
 }
 
 function pow_r(a,b){
-	var acc = 1;
 	if( b == 0) return 1;
-	acc = mult(acc,a) * pow_r(a,--b);
+	acc = mult(a, pow_r(a,--b));
 	return acc;
 }
 
