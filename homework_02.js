@@ -17,20 +17,7 @@ Dato un array di interi,
 restituire la loro somma fino a che non viene ritrovato un valore negativo
 */
 
-function callback_sum_until_neg(prevoiusValue, currentValue, index, array){
-	if(prevoiusValue > 0){
-		if(currentValue > 0){
-			return prevoiusValue + currentValue;
-		}
-		else{
-			return prevoiusValue;
-		}
-	}
-	else return 0;
-}
-
-/* ES PROF 
-function sumuntilneg_prof(myarray){
+function sum_until_neg(myarray){
 	var tot = 0;
 	myarray.every(
 		function(x) {
@@ -39,17 +26,12 @@ function sumuntilneg_prof(myarray){
 			}
 			return x > 0;
 		});
-}
-*/
-
-function sum_until_neg(arr){
-	var r = arr.reduce(callback_sum_until_neg);
-	return r;	
+	return tot;
 }
 
 function ex_1_F(x){
-	sum_until_neg(x);
-	}
+	return sum_until_neg(x);
+}
 
 /*
 Esercizio 2
@@ -69,7 +51,7 @@ function sum_odd(n){
 }
 
 function ex_2_F(x){
-	sum_odd(x);
+	return sum_odd(x);
 }
 
 /*
@@ -97,11 +79,10 @@ sumInterval(5, 3) => 12
 
 function create_interval(a,b){
 	var n = b - a;
-	var temp = n-1;
+	var temp = a;
 	var arr = [];
 	for( var i = 0; i < n+1; i++){
-		arr[i] = temp;
-		temp ++;
+		arr.push(temp++);
 	}
 	return arr;
 }
@@ -126,6 +107,7 @@ mult(2, 3) => 6
 */
 
 function multiply(x,y){
+	if(x == 0 || y == 0) return 0;
 	return replicate(x,y).reduce((prevoiusValue, currentValue) => prevoiusValue + currentValue);
 }
 
