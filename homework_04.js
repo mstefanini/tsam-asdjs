@@ -24,7 +24,7 @@ Stack.prototype.testImp = function(n){
 }
 
 // Decimal to Binary
-Stack.prototype.decToBin = function(n) {
+Stack.prototype.dec2bin = function(n) {
 	while(n > 0){
 		this.push(n%2);
 		n = Math.floor(n/2);
@@ -39,7 +39,7 @@ Stack.prototype.decToBin = function(n) {
 // Popall, esegue callback su tutti gli elementi ed elimina con il pop
 // gli elementi dello stack
 
-Stack.prototype.popAll = function(callback){
+Stack.prototype.popall = function(callback){
 	while(!this.isEmpty()){
 		callback(this.pop());
 	}
