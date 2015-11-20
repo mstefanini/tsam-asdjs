@@ -1,4 +1,4 @@
-Array.prototype.ex_1 = function(){
+Array.prototype.sumwhileneg = function(){
 	var tot = 0;
 	this.every(
 		function(x) {
@@ -10,12 +10,24 @@ Array.prototype.ex_1 = function(){
 	return tot;
 }
 
-Array.prototype.ex_3 = function(){
+Array.prototype.ex_1 = function(){
+	return this.sumwhileneg();
+}
+
+Array.prototype.avarage = function(){
 	return this.reduce((prevoiusValue, currentValue) => prevoiusValue + currentValue) / this.length;
 }
 
-Array.prototype.ex_11 = function(){
+Array.prototype.ex_3 = function(){
+	return this.avarage();
+}
+
+Array.prototype.oddEven = function(){
 	var l1 = this.filter( x => !(x%2 == 0));
 	var l2 = this.filter( x => x%2 == 0 );
 	return l1.concat(l2);
+}
+
+Array.prototype.ex_11 = function(){
+	return this.oddEven();
 }
