@@ -26,6 +26,7 @@ CircularQueue.prototype.enqueue  = function(e){
 
 CircularQueue.prototype.dequeue = function(){
 	var x = this.arr[this.front];
+	this.arr[this.front] = undefined;
 	this.front = this.front+1%this.l;
 	this.dimension--;
 	return x;
