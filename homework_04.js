@@ -22,25 +22,24 @@ Stack.prototype.testImp = function(n){
 		this.push(i);
 	}
 }
-
-// Decimal to Binary
-Stack.prototype.dec2bin = function(n) {
-	while(n > 0){
-		this.push(n%2);
-		n = Math.floor(n/2);
-	}
-	var string = "";
-	while(!this.isEmpty()){
-		string += this.pop().toString();
-	}
-	return string;
-}
-
 // Popall, esegue callback su tutti gli elementi ed elimina con il pop
 // gli elementi dello stack
-
 Stack.prototype.popall = function(callback){
 	while(!this.isEmpty()){
 		callback(this.pop());
 	}
+}
+
+// Decimal to Binary
+function dec2bin(n) {
+	stack = new Stack();
+	while(n > 0){
+		stack.push(n%2);
+		n = Math.floor(n/2);
+	}
+	var string = "";
+	while(!stack.isEmpty()){
+		string += stack.pop().toString();
+	}
+	return string;
 }
