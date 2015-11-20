@@ -24,7 +24,7 @@ Stack.prototype.testImp = function(n){
 }
 
 // Decimal to Binary
-Stack.prototype.binToDec = function(n) {
+Stack.prototype.decToBin = function(n) {
 	while(n > 0){
 		this.push(n%2);
 		n = Math.floor(n/2);
