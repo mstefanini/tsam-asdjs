@@ -55,3 +55,7 @@ function dijkstraEval(string){
 	})
 	return stack.pop();
 }
+
+function rpn(str){
+	return dijkstraEval(str);
+}
