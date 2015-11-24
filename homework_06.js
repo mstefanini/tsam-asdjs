@@ -1,8 +1,8 @@
 function CircularQueue(n){
 	this.arr = new Array(n);
 	this.l = n;
-	this.front = 0;
-	this.rear = this.front + 1;
+	this.testa = 0;
+	this.rear = this.testa + 1;
 	this.dimension = 0;
 }
 
@@ -18,22 +18,22 @@ CircularQueue.prototype.enqueue  = function(e){
 			return true;
 		}
 	}else{
-		this.arr[this.front] = e;
+		this.arr[this.testa] = e;
 		this.dimension++;
 		return true;
 	}
 }
 
 CircularQueue.prototype.dequeue = function(){
-	var x = this.arr[this.front];
-	this.arr[this.front] = undefined;
-	this.front = this.front+1%this.l;
+	var x = this.arr[this.testa];
+	this.arr[this.testa] = undefined;
+	this.testa = this.testa+1%this.l;
 	this.dimension--;
 	return x;
 }
 
 CircularQueue.prototype.front = function(){
-	return this.arr[this.front];
+	return this.arr[this.testa];
 }
 
 CircularQueue.prototype.isEmpty = function(){

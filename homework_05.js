@@ -28,7 +28,7 @@ function dijkstraEval(string){
 	stack = new Stack();
 	arr.forEach(function(e){
 		switch (e){
-			case '+':
+			case '+': 	 	
 			 var x = parseInt(stack.pop());
 			 var y = parseInt(stack.pop());
 			 stack.push(y+x);
