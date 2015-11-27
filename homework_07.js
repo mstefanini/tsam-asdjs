@@ -13,7 +13,7 @@
  -------------------------------------------------------*/
 
 function QueueItem(i,p){
-	this.value = i;
+	this.item = i;
 	this.priority = p;
 }
 
