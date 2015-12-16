@@ -1,5 +1,5 @@
 function prod(arr){
-	return arr.filter( x => ((x <= 10) || (x >= 1)))
+	return arr.filter( x => ((x <= 10) && (x >= 1)))
 	.map(x => (1/x))
 	.reduce((x,y) => x*y);
 };
@@ -10,7 +10,7 @@ function palindromo(string){
 };
 
 function palindromoR(arr){
-	if(arr.length == 0)
+	if(arr.length == 1)
 		return true;
 	if(arr[0] == arr[arr.length - 1]){
 		arr.pop();
