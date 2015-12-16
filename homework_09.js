@@ -27,9 +27,9 @@ function ex_2(arr){
 }
 
 function funzionale(arr){
-	var temp = arr.filter(x=> x%2 == 0);
-	temp.reduce( x,y => x += y*y);
-	return temp;
+	return arr.filter(x=> x%2 == 0)
+			.map(x => x*x)
+			.reduce( x,y => x += y);
 }
 
 function ex_3(arr){
