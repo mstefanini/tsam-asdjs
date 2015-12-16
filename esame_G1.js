@@ -10,7 +10,7 @@ function palindromo(string){
 };
 
 function palindromoR(arr){
-	if(arr.length == 1)
+	if(arr.length <= 1)
 		return true;
 	if(arr[0] == arr[arr.length - 1]){
 		arr.pop();
